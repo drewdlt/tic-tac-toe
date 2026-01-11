@@ -1,0 +1,1 @@
+A simple Tic Tac Toe game created to understand the concepts of React through the official tutorial on the React Documentation
