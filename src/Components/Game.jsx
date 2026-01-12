@@ -2,27 +2,30 @@ import { useState } from "react";
 import Board from "./Board";
 
 function Game() {
-    const [currTurn, setCurrTurn] = useState('X');
     const [history, setHistory] = useState([Array(9).fill(null)]);
     const [currMove, setCurrMove] = useState(0);
+    const currTurn = currMove % 2 === 0 ? 'X' : 'O';
     const currentSquares = history[currMove];
 
     const handlePlay = (nextSquares) => {
         const nextHistory = [...history.splice(0, currMove + 1), nextSquares];
         setHistory(nextHistory);
         setCurrMove(nextHistory.length - 1);
-        setCurrTurn(currTurn === 'X' ? 'O' : 'X');
     };
 
     const jumpToMove = (nextMove) => {
         setCurrMove(nextMove);
-        setCurrTurn(nextMove % 2 === 0 ? 'X' : 'O');
     };
 
     const moves = history.map((squares, move) => {
         let description;
         if (move > 0) {
-            description = 'Go to move #' + move;
+            if (move === currMove) {
+                return <li key={move} ><p className="current-move-description">You are at move #{move}</p></li>
+            }
+            else {
+                description = 'Go to move #' + move;
+            }
         }
         else {
             description = 'Go to game start';

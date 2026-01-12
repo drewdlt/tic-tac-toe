@@ -50,3 +50,9 @@ h1 {
     background-color: lightgray;
     color: #242424;
 }
+
+.current-move-description {
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
