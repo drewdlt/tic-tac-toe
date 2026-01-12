@@ -1,9 +1,7 @@
 import { useState } from "react";
 import Square from "./Square";
 
-function Board() {
-    const [squares, setSquares] = useState(Array(9).fill(null));
-    const [currTurn, setCurrTurn] = useState('X');
+function Board({ currTurn, squares, onPlay }) {
 
     const handleClick = (i) => {
         if (squares[i] || calulateWinner(squares)) {
@@ -11,8 +9,7 @@ function Board() {
         }
         const nextSquares = [...squares];
         nextSquares[i] = currTurn;
-        setSquares(nextSquares);
-        setCurrTurn(currTurn === 'X' ? 'O' : 'X');
+        onPlay(nextSquares);
     }
 
     const winner = calulateWinner(squares);

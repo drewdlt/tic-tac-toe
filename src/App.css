@@ -27,3 +27,26 @@ button:hover {
 h1 {
     margin-bottom: 15px;
 }
+
+.game {
+    display: flex;
+    gap: 70px;
+}
+
+.game-info {
+    margin-top: 20px;
+}
+
+.history-list-item button {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    padding: 5px 8px;
+    background-color: #242424;
+    border-radius: 8px;
+    transition-duration: 100ms;
+}
+
+.history-list-item button:hover {
+    background-color: lightgray;
+    color: #242424;
+}
